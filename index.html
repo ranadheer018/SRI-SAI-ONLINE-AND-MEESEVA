@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MeeSeva Center | Kavali</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* ================= HEADER ================= */
+
+        .header {
+            background: white;
+            text-align: center;
+            padding: 25px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header img {
+            width: 320px;
+            max-width: 90%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+
+        .header p {
+            color: #005baa;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background: linear-gradient(135deg, #003b70, #0072bc);
+            color: white;
+            text-align: center;
+            padding: 75px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 2px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            top: -100px;
+            left: -80px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 2px solid rgba(255,255,255,0.12);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #ffcc00;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #e8f4ff;
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: #ffcc00;
+            color: #003b70;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        /* ================= NOTICE ================= */
+
+        .notice {
+            background: #fff8d6;
+            border-bottom: 1px solid #f0d76a;
+            text-align: center;
+            padding: 15px;
+            color: #5c4a00;
+            font-weight: bold;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .services {
+            max-width: 1150px;
+            margin: auto;
+            padding: 65px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: #003b70;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+            font-size: 16px;
+        }
+
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .service {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+        }
+
+        .icon {
+            width: 70px;
+            height: 70px;
+            margin: auto;
+            margin-bottom: 20px;
+            background: #eef6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .service h3 {
+            color: #005baa;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .service p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* ================= EXTRA SERVICES ================= */
+
+        .extra-services {
+            background: white;
+            padding: 65px 20px;
+        }
+
+        .extra-container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .extra-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .extra-title h2 {
+            color: #003b70;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .extra-title p {
+            color: #777;
+        }
+
+        .extra-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .extra-card {
+            background: #f5f8fc;
+            padding: 25px;
+            border-radius: 14px;
+            border-left: 5px solid #005baa;
+            transition: 0.3s;
+        }
+
+        .extra-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .extra-card h3 {
+            color: #003b70;
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .extra-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* ================= WHY CHOOSE US ================= */
+
+        .why {
+            padding: 65px 20px;
+            text-align: center;
+        }
+
+        .why h2 {
+            color: #003b70;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .why-container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .why-box {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .why-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .big-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .why-box h3 {
+            color: #005baa;
+            margin-bottom: 10px;
+        }
+
+        .why-box p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: #003b70;
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .contact-box {
+            max-width: 750px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .contact-info {
+            font-size: 17px;
+            line-height: 1.7;
+            margin: 12px 0;
+        }
+
+        .contact-info strong {
+            color: #ffcc00;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #ffcc00;
+            color: #003b70;
+            padding: 13px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            background: #111827;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        .footer span {
+            color: #ffcc00;
+        }
+
+        /* ================= FLOATING CALL ================= */
+
+        .floating-call {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            background: #ffcc00;
+            color: #003b70;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0% {
+                box-shadow: 0 0 0 0 rgba(255,204,0,0.6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(255,204,0,0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255,204,0,0);
+            }
+
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            .service-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .extra-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .header img {
+                width: 260px;
+            }
+
+            .hero {
+                padding: 55px 15px;
+            }
+
+            .hero h1 {
+                font-size: 29px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .service-container {
+                grid-template-columns: 1fr;
+            }
+
+            .extra-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2,
+            .extra-title h2,
+            .why h2,
+            .contact h2 {
+                font-size: 27px;
+            }
+
+            .contact-box {
+                padding: 25px 15px;
+            }
+
+            .contact-info {
+                font-size: 15px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <img src="mee-seva-visakhapatnam-7t8blvooty.avif"
+             alt="MeeSeva Logo">
+
+        <p>
+            Your Trusted Digital Service Center
+        </p>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Welcome to <span>MeeSeva</span>
+            </h1>
+
+            <p>
+                Government & Digital Services Made Simple
+            </p>
+
+            <a href="#services" class="hero-button">
+                Explore Services
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= NOTICE ================= -->
+
+    <div class="notice">
+
+        ⭐ All Your Digital & Government Services Available Here ⭐
+
+    </div>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="services" id="services">
+
+        <div class="section-title">
+
+            <h2>
+                Our Services
+            </h2>
+
+            <p>
+                Complete Digital & Government Service Solutions
+            </p>
+
+        </div>
+
+
+        <div class="service-container">
+
+
+            <!-- JOB APPLICATIONS -->
+
+            <div class="service">
+
+                <div class="icon">
+                    💼
+                </div>
+
+                <h3>
+                    Job Applications
+                </h3>
+
+                <p>
+                    All types of job applications are done here.
+                    Get assistance with online job applications.
+                </p>
+
+            </div>
+
+
+            <!-- VOTER SERVICES -->
+
+            <div class="service">
+
+                <div class="icon">
+                    🗳️
+                </div>
+
+                <h3>
+                    Voter Services
+                </h3>
+
+                <p>
+                    Assistance with voter-related online
+                    services and applications.
+                </p>
+
+            </div>
+
+
+            <!-- PAN SERVICES -->
+
+            <div class="service">
+
+                <div class="icon">
+                    💳
+                </div>
+
+                <h3>
+                    PAN Services
+                </h3>
+
+                <p>
+                    PAN-related online services and
+                    application assistance.
+                </p>
+
+            </div>
+
+
+            <!-- AADHAAR SERVICES -->
+
+            <div class="service">
+
+                <div class="icon">
+                    🪪
+                </div>
+
+                <h3>
+                    Aadhaar Services
+                </h3>
+
+                <p>
+                    Assistance with available Aadhaar-related
+                    services and applications.
+                </p>
+
+            </div>
+
+
+            <!-- CERTIFICATES -->
+
+            <div class="service">
+
+                <div class="icon">
+                    📄
+                </div>
+
+                <h3>
+                    Certificates
+                </h3>
+
+                <p>
+                    Apply for various government certificates
+                    and essential documents.
+                </p>
+
+            </div>
+
+
+            <!-- BILL PAYMENTS -->
+
+            <div class="service">
+
+                <div class="icon">
+                    💰
+                </div>
+
+                <h3>
+                    Bill Payments
+                </h3>
+
+                <p>
+                    Electricity, water, mobile and other
+                    online bill payment services.
+                </p>
+
+            </div>
+
+
+            <!-- GOVERNMENT SERVICES -->
+
+            <div class="service">
+
+                <div class="icon">
+                    🏛️
+                </div>
+
+                <h3>
+                    Government Services
+                </h3>
+
+                <p>
+                    Access various government schemes
+                    and online government services.
+                </p>
+
+            </div>
+
+
+            <!-- PVC CARDS -->
+
+            <div class="service">
+
+                <div class="icon">
+                    🖨️
+                </div>
+
+                <h3>
+                    PVC Card Printing
+                </h3>
+
+                <p>
+                    Any type of PVC cards can be printed
+                    with quality and convenience.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MORE SERVICES ================= -->
+
+    <section class="extra-services">
+
+        <div class="extra-container">
+
+            <div class="extra-title">
+
+                <h2>
+                    More Services Available
+                </h2>
+
+                <p>
+                    We make your online work easier and faster
+                </p>
+
+            </div>
+
+
+            <div class="extra-grid">
+
+
+                <div class="extra-card">
+
+                    <h3>
+                        💼 All Job Applications
+                    </h3>
+
+                    <p>
+                        Job application assistance for various
+                        online recruitment opportunities.
+                    </p>
+
+                </div>
+
+
+                <div class="extra-card">
+
+                    <h3>
+                        🗳️ Voter Services
+                    </h3>
+
+                    <p>
+                        Get assistance with available voter
+                        registration and related services.
+                    </p>
+
+                </div>
+
+
+                <div class="extra-card">
+
+                    <h3>
+                        💳 PAN Services
+                    </h3>
+
+                    <p>
+                        PAN application and other available
+                        PAN-related online services.
+                    </p>
+
+                </div>
+
+
+                <div class="extra-card">
+
+                    <h3>
+                        🪪 Aadhaar Services
+                    </h3>
+
+                    <p>
+                        Assistance with available Aadhaar
+                        services and online applications.
+                    </p>
+
+                </div>
+
+
+                <div class="extra-card">
+
+                    <h3>
+                        🖨️ PVC Card Printing
+                    </h3>
+
+                    <p>
+                        Any type of PVC cards can be printed
+                        according to your requirements.
+                    </p>
+
+                </div>
+
+
+                <div class="extra-card">
+
+                    <h3>
+                        🌐 Online Services
+                    </h3>
+
+                    <p>
+                        Various online applications, printing,
+                        scanning and digital services.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= WHY CHOOSE US ================= -->
+
+    <section class="why">
+
+        <h2>
+            Why Choose Our MeeSeva?
+        </h2>
+
+
+        <div class="why-container">
+
+
+            <div class="why-box">
+
+                <div class="big-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Fast Service
+                </h3>
+
+                <p>
+                    Quick and convenient assistance
+                    for your online service needs.
+                </p>
+
+            </div>
+
+
+            <div class="why-box">
+
+                <div class="big-icon">
+                    🔒
+                </div>
+
+                <h3>
+                    Reliable Service
+                </h3>
+
+                <p>
+                    Professional assistance for your
+                    government and digital service needs.
+                </p>
+
+            </div>
+
+
+            <div class="why-box">
+
+                <div class="big-icon">
+                    😊
+                </div>
+
+                <h3>
+                    Customer Friendly
+                </h3>
+
+                <p>
+                    Friendly support and easy access
+                    to online services.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact">
+
+        <h2>
+            Visit Our MeeSeva Center
+        </h2>
+
+
+        <div class="contact-box">
+
+
+            <p class="contact-info">
+
+                👨‍💼 <strong>Operator:</strong>
+                Murali Krishna
+
+            </p>
+
+
+            <p class="contact-info">
+
+                📍 <strong>Address:</strong><br>
+
+                Near Manasa Centre,
+                Opposite Nalanda School,
+                Kavali, SPSR Nellore
+
+            </p>
+
+
+            <p class="contact-info">
+
+                📞 <strong>Contact:</strong>
+                9177065544
+
+            </p>
+
+
+            <p class="contact-info">
+
+                📧 <strong>Email:</strong>
+                snchowdary17@gmail.com
+
+            </p>
+
+
+            <p class="contact-info">
+
+                🕘 <strong>Working Hours:</strong>
+                9:00 AM – 8:00 PM
+
+            </p>
+
+
+            <div class="buttons">
+
+                <a href="tel:9177065544"
+                   class="button">
+
+                    📞 Call Now
+
+                </a>
+
+
+                <a href="mailto:snchowdary17@gmail.com"
+                   class="button">
+
+                    📧 Send Email
+
+                </a>
+
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Near+Manasa+Centre+Opposite+Nalanda+School+Kavali+SPSR+Nellore"
+                   target="_blank"
+                   class="button">
+
+                    📍 Get Directions
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <p>
+
+            © 2026 <span>MeeSeva Center</span>
+            | Operator: Murali Krishna
+            | All Rights Reserved
+
+        </p>
+
+    </footer>
+
+
+    <!-- ================= FLOATING CALL ================= -->
+
+    <a href="tel:9177065544"
+       class="floating-call"
+       title="Call MeeSeva">
+
+        📞
+
+    </a>
+
+
+</body>
+</html>
