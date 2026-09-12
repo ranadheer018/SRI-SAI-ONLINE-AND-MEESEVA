@@ -7,6 +7,7 @@
     <title>MeeSeva Center | Kavali</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -23,45 +24,111 @@
             color: #222;
         }
 
-        /* HEADER */
-        .header {
-            background: white;
-            text-align: center;
-            padding: 30px 20px;
-            border-bottom: 1px solid #ddd;
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 7%;
         }
 
-        .header h1 {
+        .logo {
             color: #005baa;
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            color: #005baa;
-            font-size: 18px;
+            font-size: 25px;
             font-weight: bold;
-            letter-spacing: 1px;
         }
 
-        /* HERO */
+        .logo span {
+            color: #f5b800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #005baa;
+        }
+
+        /* ================= HERO ================= */
+
         .hero {
-            background: linear-gradient(135deg, #003b70, #0072bc);
+            min-height: 600px;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.12), transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(255,204,0,0.15), transparent 25%),
+                linear-gradient(135deg, #002f63, #006fc4);
+
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 75px 20px;
+            padding: 80px 20px;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border: 2px solid rgba(255,255,255,0.12);
+            border-radius: 50%;
+            top: -120px;
+            left: -100px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 2px solid rgba(255,255,255,0.08);
+            border-radius: 50%;
+            bottom: -250px;
+            right: -150px;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            max-width: 850px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 9px 20px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
 
         .hero h1 {
-            font-size: 45px;
-            margin-bottom: 15px;
+            font-size: 62px;
+            margin-bottom: 20px;
+            line-height: 1.1;
         }
 
         .hero h1 span {
@@ -69,27 +136,50 @@
         }
 
         .hero p {
-            font-size: 19px;
-            margin-bottom: 30px;
+            font-size: 21px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            color: #e9f5ff;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .hero-button {
             display: inline-block;
             background: #ffcc00;
             color: #003b70;
-            padding: 14px 30px;
-            border-radius: 30px;
+            padding: 15px 30px;
+            border-radius: 35px;
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
         .hero-button:hover {
             background: white;
-            transform: scale(1.05);
+            transform: translateY(-4px);
         }
 
-        /* NOTICE */
+        .hero-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            box-shadow: none;
+        }
+
+        .hero-button.secondary:hover {
+            background: white;
+            color: #003b70;
+        }
+
+        /* ================= NOTICE ================= */
+
         .notice {
             background: #fff8d6;
             border-bottom: 1px solid #f0d76a;
@@ -97,29 +187,74 @@
             padding: 15px;
             color: #5c4a00;
             font-weight: bold;
+            font-size: 15px;
         }
 
-        /* SERVICES */
+        /* ================= STATS ================= */
+
+        .stats {
+            max-width: 1050px;
+            margin: -45px auto 0;
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .stat {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+        }
+
+        .stat h2 {
+            color: #005baa;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* ================= SECTION ================= */
+
         .services {
             max-width: 1150px;
             margin: auto;
-            padding: 65px 20px;
+            padding: 90px 20px 70px;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .section-title h2 {
             color: #003b70;
-            font-size: 34px;
-            margin-bottom: 10px;
+            font-size: 38px;
+            margin-bottom: 12px;
         }
 
         .section-title p {
             color: #777;
+            font-size: 16px;
         }
+
+        .section-line {
+            width: 70px;
+            height: 4px;
+            background: #ffcc00;
+            margin: 15px auto;
+            border-radius: 10px;
+        }
+
+        /* ================= SERVICE CARDS ================= */
 
         .service-container {
             display: grid;
@@ -129,22 +264,39 @@
 
         .service {
             background: white;
-            padding: 30px 20px;
+            padding: 32px 22px;
             text-align: center;
-            border-radius: 15px;
-            border: 1px solid #eee;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            transition: 0.3s;
+            border-radius: 18px;
+            border: 1px solid #e8edf3;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: 0.35s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service::before {
+            content: "";
+            position: absolute;
+            height: 4px;
+            width: 0;
+            left: 0;
+            top: 0;
+            background: #ffcc00;
+            transition: 0.35s;
+        }
+
+        .service:hover::before {
+            width: 100%;
         }
 
         .service:hover {
             transform: translateY(-10px);
-            box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
         }
 
         .icon {
-            width: 70px;
-            height: 70px;
+            width: 75px;
+            height: 75px;
             margin: auto;
             margin-bottom: 20px;
             background: #eef6ff;
@@ -152,7 +304,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 34px;
+            transition: 0.3s;
+        }
+
+        .service:hover .icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .service h3 {
@@ -167,10 +324,11 @@
             font-size: 14px;
         }
 
-        /* MORE SERVICES */
+        /* ================= EXTRA SERVICES ================= */
+
         .extra-services {
             background: white;
-            padding: 65px 20px;
+            padding: 75px 20px;
         }
 
         .extra-container {
@@ -180,12 +338,12 @@
 
         .extra-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .extra-title h2 {
             color: #003b70;
-            font-size: 34px;
+            font-size: 36px;
             margin-bottom: 10px;
         }
 
@@ -201,39 +359,41 @@
 
         .extra-card {
             background: #f5f8fc;
-            padding: 25px;
-            border-radius: 14px;
+            padding: 28px;
+            border-radius: 15px;
             border-left: 5px solid #005baa;
             transition: 0.3s;
         }
 
         .extra-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transform: translateX(7px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
 
         .extra-card h3 {
             color: #003b70;
             font-size: 19px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .extra-card p {
             color: #666;
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* WHY CHOOSE US */
+        /* ================= WHY CHOOSE US ================= */
+
         .why {
-            padding: 65px 20px;
+            padding: 75px 20px;
             text-align: center;
+            background: #f5f7fb;
         }
 
         .why h2 {
             color: #003b70;
-            font-size: 32px;
-            margin-bottom: 40px;
+            font-size: 36px;
+            margin-bottom: 45px;
         }
 
         .why-container {
@@ -246,66 +406,82 @@
 
         .why-box {
             background: white;
-            padding: 30px 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            padding: 35px 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
             transition: 0.3s;
         }
 
         .why-box:hover {
-            transform: translateY(-5px);
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.10);
         }
 
         .big-icon {
-            font-size: 38px;
+            font-size: 42px;
             margin-bottom: 15px;
         }
 
         .why-box h3 {
             color: #005baa;
             margin-bottom: 10px;
+            font-size: 20px;
         }
 
         .why-box p {
             color: #666;
-            line-height: 1.5;
+            line-height: 1.6;
+            font-size: 14px;
         }
 
-        /* CONTACT */
+        /* ================= CONTACT ================= */
+
         .contact {
-            background: #003b70;
+            background:
+                radial-gradient(circle at top right, rgba(255,204,0,0.12), transparent 30%),
+                linear-gradient(135deg, #002d5f, #005fae);
             color: white;
             text-align: center;
-            padding: 65px 20px;
+            padding: 80px 20px;
         }
 
         .contact h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
+            font-size: 38px;
+            margin-bottom: 35px;
+        }
+
+        .contact-subtitle {
+            color: #dceeff;
+            margin-bottom: 35px;
         }
 
         .contact-box {
-            max-width: 750px;
+            max-width: 780px;
             margin: auto;
-            padding: 30px;
-            border-radius: 15px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
+            padding: 40px 30px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.20);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
 
         .contact-info {
             font-size: 17px;
-            line-height: 1.7;
-            margin: 12px 0;
+            line-height: 1.8;
+            margin: 15px 0;
         }
 
         .contact-info strong {
             color: #ffcc00;
         }
 
-        /* BUTTONS */
         .buttons {
-            margin-top: 30px;
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .button {
@@ -325,12 +501,13 @@
             transform: translateY(-3px);
         }
 
-        /* FOOTER */
+        /* ================= FOOTER ================= */
+
         .footer {
             background: #111827;
-            color: #aaa;
+            color: #9ca3af;
             text-align: center;
-            padding: 20px;
+            padding: 25px 20px;
             font-size: 14px;
         }
 
@@ -338,13 +515,18 @@
             color: #ffcc00;
         }
 
-        /* FLOATING CALL */
+        .footer p {
+            line-height: 1.8;
+        }
+
+        /* ================= FLOATING CALL ================= */
+
         .floating-call {
             position: fixed;
-            right: 20px;
-            bottom: 20px;
-            width: 60px;
-            height: 60px;
+            right: 22px;
+            bottom: 22px;
+            width: 62px;
+            height: 62px;
             background: #ffcc00;
             color: #003b70;
             border-radius: 50%;
@@ -352,13 +534,14 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            font-size: 26px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
             z-index: 1000;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
+
             0% {
                 box-shadow: 0 0 0 0 rgba(255,204,0,0.6);
             }
@@ -370,9 +553,11 @@
             100% {
                 box-shadow: 0 0 0 0 rgba(255,204,0,0);
             }
+
         }
 
-        /* MOBILE */
+        /* ================= MOBILE ================= */
+
         @media (max-width: 900px) {
 
             .service-container {
@@ -388,22 +573,53 @@
             }
 
             .hero h1 {
-                font-size: 36px;
+                font-size: 48px;
             }
+
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
+
+            .navbar {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
 
             .hero {
-                padding: 55px 15px;
+                min-height: 540px;
+                padding: 60px 15px;
             }
 
             .hero h1 {
-                font-size: 29px;
+                font-size: 37px;
             }
 
             .hero p {
-                font-size: 16px;
+                font-size: 17px;
+            }
+
+            .hero-tag {
+                font-size: 12px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                margin-top: -30px;
+            }
+
+            .services {
+                padding-top: 60px;
             }
 
             .service-container {
@@ -418,60 +634,105 @@
             .extra-title h2,
             .why h2,
             .contact h2 {
-                font-size: 27px;
+                font-size: 28px;
             }
 
             .contact-box {
-                padding: 25px 15px;
+                padding: 30px 15px;
             }
 
             .contact-info {
                 font-size: 15px;
             }
+
+            .button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .floating-call {
+                width: 55px;
+                height: 55px;
+                right: 15px;
+                bottom: 15px;
+            }
+
         }
 
     </style>
+
 </head>
 
 <body>
 
-    <!-- HEADER -->
+    <!-- ================= NAVIGATION ================= -->
 
-    <header class="header">
+    <nav class="navbar">
 
-        <h1>🌐 MEESEVA</h1>
+        <div class="logo">
+            MEE<span>SEVA</span>
+        </div>
 
-        <p>
-            Your Trusted Digital Service Center
-        </p>
+        <ul class="nav-links">
 
-    </header>
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#services">Services</a>
+            </li>
+
+            <li>
+                <a href="#why">Why Us</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
 
 
-    <!-- HERO -->
+    <!-- ================= HERO ================= -->
 
-    <section class="hero">
+    <section class="hero" id="home">
 
         <div class="hero-content">
+
+            <div class="hero-tag">
+                ⭐ YOUR TRUSTED DIGITAL SERVICE CENTER
+            </div>
 
             <h1>
                 Welcome to <span>MeeSeva</span>
             </h1>
 
             <p>
-                Government & Digital Services Made Simple
+                Government & Digital Services Made
+                <strong>Simple, Fast & Convenient</strong>
             </p>
 
-            <a href="#services" class="hero-button">
-                Explore Services
-            </a>
+            <div class="hero-buttons">
+
+                <a href="#services" class="hero-button">
+                    Explore Services
+                </a>
+
+                <a href="tel:9177065544" class="hero-button secondary">
+                    📞 Contact Us
+                </a>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- NOTICE -->
+    <!-- ================= NOTICE ================= -->
 
     <div class="notice">
 
@@ -480,13 +741,54 @@
     </div>
 
 
-    <!-- SERVICES -->
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+        <div class="stat">
+
+            <h2>8+</h2>
+
+            <p>
+                Major Services
+            </p>
+
+        </div>
+
+        <div class="stat">
+
+            <h2>Fast</h2>
+
+            <p>
+                Service Assistance
+            </p>
+
+        </div>
+
+        <div class="stat">
+
+            <h2>9 AM - 8 PM</h2>
+
+            <p>
+                Working Hours
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
 
     <section class="services" id="services">
 
         <div class="section-title">
 
-            <h2>Our Services</h2>
+            <h2>
+                Our Services
+            </h2>
+
+            <div class="section-line"></div>
 
             <p>
                 Complete Digital & Government Service Solutions
@@ -499,9 +801,13 @@
 
             <div class="service">
 
-                <div class="icon">💼</div>
+                <div class="icon">
+                    💼
+                </div>
 
-                <h3>Job Applications</h3>
+                <h3>
+                    Job Applications
+                </h3>
 
                 <p>
                     All types of job applications are done here.
@@ -513,9 +819,13 @@
 
             <div class="service">
 
-                <div class="icon">🗳️</div>
+                <div class="icon">
+                    🗳️
+                </div>
 
-                <h3>Voter Services</h3>
+                <h3>
+                    Voter Services
+                </h3>
 
                 <p>
                     Assistance with voter-related online
@@ -527,9 +837,13 @@
 
             <div class="service">
 
-                <div class="icon">💳</div>
+                <div class="icon">
+                    💳
+                </div>
 
-                <h3>PAN Services</h3>
+                <h3>
+                    PAN Services
+                </h3>
 
                 <p>
                     PAN-related online services and
@@ -541,9 +855,13 @@
 
             <div class="service">
 
-                <div class="icon">🪪</div>
+                <div class="icon">
+                    🪪
+                </div>
 
-                <h3>Aadhaar Services</h3>
+                <h3>
+                    Aadhaar Services
+                </h3>
 
                 <p>
                     Assistance with available Aadhaar-related
@@ -555,9 +873,13 @@
 
             <div class="service">
 
-                <div class="icon">📄</div>
+                <div class="icon">
+                    📄
+                </div>
 
-                <h3>Certificates</h3>
+                <h3>
+                    Certificates
+                </h3>
 
                 <p>
                     Apply for various government certificates
@@ -569,9 +891,13 @@
 
             <div class="service">
 
-                <div class="icon">💰</div>
+                <div class="icon">
+                    💰
+                </div>
 
-                <h3>Bill Payments</h3>
+                <h3>
+                    Bill Payments
+                </h3>
 
                 <p>
                     Electricity, water, mobile and other
@@ -583,9 +909,13 @@
 
             <div class="service">
 
-                <div class="icon">🏛️</div>
+                <div class="icon">
+                    🏛️
+                </div>
 
-                <h3>Government Services</h3>
+                <h3>
+                    Government Services
+                </h3>
 
                 <p>
                     Access various government schemes
@@ -597,9 +927,13 @@
 
             <div class="service">
 
-                <div class="icon">🖨️</div>
+                <div class="icon">
+                    🖨️
+                </div>
 
-                <h3>PVC Card Printing</h3>
+                <h3>
+                    PVC Card Printing
+                </h3>
 
                 <p>
                     Any type of PVC cards can be printed
@@ -613,7 +947,7 @@
     </section>
 
 
-    <!-- MORE SERVICES -->
+    <!-- ================= MORE SERVICES ================= -->
 
     <section class="extra-services">
 
@@ -621,7 +955,11 @@
 
             <div class="extra-title">
 
-                <h2>More Services Available</h2>
+                <h2>
+                    More Services Available
+                </h2>
+
+                <div class="section-line"></div>
 
                 <p>
                     We make your online work easier and faster
@@ -634,7 +972,9 @@
 
                 <div class="extra-card">
 
-                    <h3>💼 All Job Applications</h3>
+                    <h3>
+                        💼 All Job Applications
+                    </h3>
 
                     <p>
                         Job application assistance for various
@@ -646,7 +986,9 @@
 
                 <div class="extra-card">
 
-                    <h3>🗳️ Voter Services</h3>
+                    <h3>
+                        🗳️ Voter Services
+                    </h3>
 
                     <p>
                         Get assistance with available voter
@@ -658,7 +1000,9 @@
 
                 <div class="extra-card">
 
-                    <h3>💳 PAN Services</h3>
+                    <h3>
+                        💳 PAN Services
+                    </h3>
 
                     <p>
                         PAN application and other available
@@ -670,7 +1014,9 @@
 
                 <div class="extra-card">
 
-                    <h3>🪪 Aadhaar Services</h3>
+                    <h3>
+                        🪪 Aadhaar Services
+                    </h3>
 
                     <p>
                         Assistance with available Aadhaar
@@ -682,7 +1028,9 @@
 
                 <div class="extra-card">
 
-                    <h3>🖨️ PVC Card Printing</h3>
+                    <h3>
+                        🖨️ PVC Card Printing
+                    </h3>
 
                     <p>
                         Any type of PVC cards can be printed
@@ -694,7 +1042,9 @@
 
                 <div class="extra-card">
 
-                    <h3>🌐 Online Services</h3>
+                    <h3>
+                        🌐 Online Services
+                    </h3>
 
                     <p>
                         Various online applications, printing,
@@ -710,20 +1060,28 @@
     </section>
 
 
-    <!-- WHY CHOOSE US -->
+    <!-- ================= WHY CHOOSE US ================= -->
 
-    <section class="why">
+    <section class="why" id="why">
 
-        <h2>Why Choose Our MeeSeva?</h2>
+        <h2>
+            Why Choose Our MeeSeva?
+        </h2>
+
+        <div class="section-line"></div>
 
 
         <div class="why-container">
 
             <div class="why-box">
 
-                <div class="big-icon">⚡</div>
+                <div class="big-icon">
+                    ⚡
+                </div>
 
-                <h3>Fast Service</h3>
+                <h3>
+                    Fast Service
+                </h3>
 
                 <p>
                     Quick and convenient assistance
@@ -735,9 +1093,13 @@
 
             <div class="why-box">
 
-                <div class="big-icon">🔒</div>
+                <div class="big-icon">
+                    🔒
+                </div>
 
-                <h3>Reliable Service</h3>
+                <h3>
+                    Reliable Service
+                </h3>
 
                 <p>
                     Professional assistance for your
@@ -749,9 +1111,13 @@
 
             <div class="why-box">
 
-                <div class="big-icon">😊</div>
+                <div class="big-icon">
+                    😊
+                </div>
 
-                <h3>Customer Friendly</h3>
+                <h3>
+                    Customer Friendly
+                </h3>
 
                 <p>
                     Friendly support and easy access
@@ -765,18 +1131,25 @@
     </section>
 
 
-    <!-- CONTACT -->
+    <!-- ================= CONTACT ================= -->
 
-    <section class="contact">
+    <section class="contact" id="contact">
 
-        <h2>Visit Our MeeSeva Center</h2>
+        <h2>
+            Visit Our MeeSeva Center
+        </h2>
+
+        <p class="contact-subtitle">
+            We are here to make your digital work easier.
+        </p>
 
 
         <div class="contact-box">
 
             <p class="contact-info">
 
-                👨‍💼 <strong>Operator:</strong>
+                👨‍💼
+                <strong>Operator:</strong>
                 Murali Krishna
 
             </p>
@@ -784,7 +1157,9 @@
 
             <p class="contact-info">
 
-                📍 <strong>Address:</strong><br>
+                📍
+                <strong>Address:</strong>
+                <br>
 
                 Near Manasa Centre,
                 Opposite Nalanda School,
@@ -795,7 +1170,8 @@
 
             <p class="contact-info">
 
-                📞 <strong>Contact:</strong>
+                📞
+                <strong>Contact:</strong>
                 9177065544
 
             </p>
@@ -803,7 +1179,8 @@
 
             <p class="contact-info">
 
-                📧 <strong>Email:</strong>
+                📧
+                <strong>Email:</strong>
                 snchowdary17@gmail.com
 
             </p>
@@ -811,7 +1188,8 @@
 
             <p class="contact-info">
 
-                🕘 <strong>Working Hours:</strong>
+                🕘
+                <strong>Working Hours:</strong>
                 9:00 AM – 8:00 PM
 
             </p>
@@ -819,22 +1197,23 @@
 
             <div class="buttons">
 
-                <a href="tel:9177065544"
-                   class="button">
+                <a href="tel:9177065544" class="button">
                     📞 Call Now
                 </a>
 
 
-                <a href="mailto:snchowdary17@gmail.com"
-                   class="button">
+                <a href="mailto:snchowdary17@gmail.com" class="button">
                     📧 Send Email
                 </a>
 
 
-                <a href="https://www.google.com/maps/search/?api=1&query=Near+Manasa+Centre+Opposite+Nalanda+School+Kavali+SPSR+Nellore"
-                   target="_blank"
-                   class="button">
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Near+Manasa+Centre+Opposite+Nalanda+School+Kavali+SPSR+Nellore"
+                    target="_blank"
+                    class="button">
+
                     📍 Get Directions
+
                 </a>
 
             </div>
@@ -844,28 +1223,39 @@
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- ================= FOOTER ================= -->
 
     <footer class="footer">
 
         <p>
-            © 2026 <span>MeeSeva Center</span>
-            | Operator: Murali Krishna
-            | All Rights Reserved
+
+            © 2026
+            <span>MeeSeva Center</span>
+            |
+            Operator: Murali Krishna
+            |
+            All Rights Reserved
+
+        </p>
+
+        <p>
+            Your Trusted Digital Service Center
         </p>
 
     </footer>
 
 
-    <!-- FLOATING CALL BUTTON -->
+    <!-- ================= FLOATING CALL ================= -->
 
-    <a href="tel:9177065544"
-       class="floating-call"
-       title="Call MeeSeva">
+    <a
+        href="tel:9177065544"
+        class="floating-call"
+        title="Call MeeSeva">
 
         📞
 
     </a>
+
 
 </body>
 </html>
